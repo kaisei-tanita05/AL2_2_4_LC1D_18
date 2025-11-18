@@ -1,0 +1,6 @@
+#include "Iscene.h"
+
+// タイトルスタート
+int IScene::sceneNo = TITLE;
+
+IScene::~IScene() {}
