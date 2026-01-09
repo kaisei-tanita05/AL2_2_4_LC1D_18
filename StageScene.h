@@ -1,56 +1,18 @@
 #pragma once
-#include "IScene.h"
-#include <Vector2.h>
 
+#include "Command.h"
+#include "InputHandler.h"
+#include "Player.h"
 
+class StageScene {
 
-struct Player {
-
-	Vector2 pos;
-	float radius;
-	float speed;
-};
-
-struct Enemy {
-
-	Vector2 pos;
-	float radius;
-	float speed;
-	bool ALive;
-};
-
-struct Bullet {
-
-	Vector2 pos;
-	float radius;
-	float speed;
-	bool isShot;
-};
-
-class StageScene : public IScene {
 public:
-	void Initialize() override;
-
-	void Update(char* keys, char* preKeys) override;
-
-	void Draw() override;
+	void Initialize();
+	void Update();
+	void Draw();
 
 private:
-	Player player;
-
-	Enemy enemy;
-
-	Bullet bullet;
-
-	void UpdatePlayer(char* keys, char* preKeys);
-
-	void UpdateBullet();
+	InputHandler* inputHandler_ = nullptr;
+	ICommand* iCommand_ = nullptr;
+	Player* player_;
 };
-
-//class StageScene : public IScene {
-//
-//public:
-//	void Initialize() override;
-//	void Update(char* keys, char* preKeys) override;
-//	void Draw() override;
-//};
